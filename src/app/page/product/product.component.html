@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <button mat-raised-button data-target="#addModel" data-toggle="modal">Add</button>
+                <table class="table table-hover table-bordered mt-4 table-stripped">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Product TiTLE</th>
+                        <th>Product Price</th>
+                        <!-- <th>Product Details</th> -->
+                        <th>Product Category</th>
+                        <th>Product Discount</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr *ngFor="let product of addProducts; let n = index">
+                        <td>{{ n+1 }}</td>
+                        <td>{{ product.product_title }}</td>
+                        <td>{{ product.product_price }}</td>
+                        <!-- <td>{{ product.product.details }}</td> -->
+                        <td>{{ product.product_category }}</td>
+                        <td>{{ product.product_discount }}</td>
+                        <td><button mat-button data-toggle="modal" data-target="#addModel" (click)="askEdit(product, n)">Edit</button></td>
+                        <td><button mat-button data-toggle="modal" data-target="#delproduct" (click)="askproduct(product)">Delete</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-addproduct (productEvent)=add($event)></app-addproduct>
+<app-delproduct [cdelproduct]="delproduct" (productEvent)=delete($event)></app-delproduct>

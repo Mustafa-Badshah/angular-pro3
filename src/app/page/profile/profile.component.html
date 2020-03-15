@@ -1,0 +1,51 @@
+<div class="text-center">
+    <h3>User Profile</h3>
+</div>
+
+<!-- <button mat-button (click)="demo()">click</button> -->
+<!-- <pre>{{ user | json }}</pre> -->
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{ user.f_name }}</td>
+                </tr>
+                <tr>
+                    <td>User Name</td>
+                    <td>{{ user.u_name }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>{{ user.gender }}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>{{ user.city }}</td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td>{{ user.contact }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ user.address }}</td>
+                </tr>
+            </table>
+            <button class="btn btn-info ml-2" data-target="#EditProfile" data-toggle="modal" (click)="askEdit(user)">Edit Your Profile</button>
+            <button class="btn btn-info" data-target="#chapngepassword" data-toggle="modal">Change Your Password</button>
+        </div>
+    </div>
+</div>
+<app-editprofile [userprofile]="user" (userEvent)="edit($event)"></app-editprofile>
+<app-chppassword></app-chppassword>

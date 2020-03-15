@@ -1,0 +1,41 @@
+<div class="container-fluid text-center">
+    <h2>Student Information</h2>
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <button mat-raised-button data-target="#addModel" data-toggle="modal">Add</button>
+            <table class="table table-dark table-bordered">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let student of students; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.city }}</td>
+                    <td>{{ student.gender}}</td>
+                    <td>{{ student.address}}</td>
+                    <td><button mat-raised-button data-target="#delModal" data-toggle="modal" (click)="askDelete(student)">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-add (studentEvent)="add($event)"></app-add>
+<app-delete [cdelStudent]="delStudent" (studentEvent)="delete($event)"></app-delete>

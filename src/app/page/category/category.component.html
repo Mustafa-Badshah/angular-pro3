@@ -1,0 +1,29 @@
+<div class="container mt-4">
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <button mat-button data-target="#addModel" data-toggle="modal"> Add</button>
+            <table class="table table-bordered">
+                <tr>
+                    <th>S.No</th>
+                    <th>Category Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let category of addCategory; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ category.category_name }}</td>
+                    <td><button mat-raised-button data-target="#addModel" data-toggle="modal" (click)="askEdit(category)">Edit</button></td>
+                    <td><button mat-raised-button>Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<app-addcategory (categoryEvent)="add($event)" [category]="category"></app-addcategory>

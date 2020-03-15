@@ -1,0 +1,118 @@
+<div class="container mat-4">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+
+
+
+
+
+
+
+
+
+
+
+            <form [formGroup]="user">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid' : check && user.controls.f_name.errors}" formControlName="f_name">
+                    <div *ngIf="check && user.controls.f_name.errors" class="invalid-feedback">
+                        <p *ngIf="user.controls.f_name.errors.required">
+                            Insert Your Full Name
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid' : check && user.controls.email.errors}">
+                        <div *ngIf="check && user.controls.email.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.email.errors.required">
+                                Insert Your Email
+                            </p>
+                            <p *ngIf="user.controls.email.errors.email">
+                                Correct Email Id
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': check && user.controls.password.errors}">
+                        <div *ngIf="check && user.controls.password.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.password.errors.required">
+                                Insert Your Password
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" formControlName="repassword" [ngClass]="{'is-invalid': check && user.controls.repassword.errors}">
+                        <div *ngIf="check && user.controls.repassword.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.repassword.errors.required">
+                                Insert Your Confirm Password
+                            </p>
+                            <p *ngIf="user.controls.repassword.errors.myError">
+                                Password and Re-Password not matched !
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea type="text" formControlName="address" class="form-control" [ngClass]="{'is-invalid': check && user.controls.address.errors}"></textarea>
+                        <div *ngIf="check && user.controls.address.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.address.errors.required">
+                                Plase Enter Your Field
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <select class="form-control" formControlName="city" [ngClass]="{'is-invalid': check && user.controls.city.errors}"> 
+                            <option>~~Select~~</option>
+                            <option>Indore</option>
+                            <option>Khandwa</option>
+                            <option>Pune</option>
+                            <option>Mumbai</option>
+                        </select>
+                        <div *ngIf="check && user.controls.city.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.city.errors.required">
+                                Plase Enter Your Field
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label><br> Male&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="male" formControlName="gender" [ngClass]="{'is-invalid': check && user.controls.gender.errors}"> Female&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="female" formControlName="gender" [ngClass]="{'is-invalid': check && user.controls.gender.errors}">
+                        <div *ngIf="check && user.controls.gender.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.gender.errors.required">
+                                Plase Enter Your Field
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="text" formControlName="contact" class="form-control" [ngClass]="{'is-invalid': check && user.controls.contact.errors}">
+                        <div *ngIf="check && user.controls.contact.errors" class="invalid-feedback">
+                            <p *ngIf="user.controls.contact.errors.required">
+                                Please Enter Your Contact Number
+                            </p>
+                            <p *ngIf="user.controls.contact.errors.numErr">
+                                Insert Number Only
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info" value="singup" (click)="submit()">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
